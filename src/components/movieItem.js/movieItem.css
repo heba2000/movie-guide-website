@@ -1,0 +1,42 @@
+.card{
+    border :none;
+    background-color: transparent !important;
+}
+.card-body h6{
+  font-weight: 600;
+  font-size: 15px;
+}
+.card-text:hover {
+    color: #cc0000;
+}
+.rate-icon{
+    color: rgb(212, 212, 5);
+}
+.card-img-top{
+    transition: all .5s ease-out;
+}
+.img-container{
+    overflow: hidden;
+    position: relative;
+}
+.card-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0, .6);
+    opacity: 0;
+    transition: ease-in .3s;
+    top: 0px;
+}
+.img-container:hover .card-img-top{
+    transform: scale(1.2,1.2);
+}
+.img-container:hover .card-layer{
+    opacity: 1;   
+}
+.text-black{
+    font-weight: 400 !important;
+    color: rgba(0, 0,0, .8);
+    letter-spacing: 2px;
+    font-size: 15px;
+}
