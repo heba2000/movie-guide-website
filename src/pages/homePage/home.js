@@ -7,6 +7,7 @@ import axios from "axios";
 import Loader from "../../components/loader/loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LanguageContext } from "../../context/languageContext";
+import SimpleSlider from "../../components/slider/slider";
 
 
 export default function Home() {
@@ -103,8 +104,11 @@ export default function Home() {
             <div className="py-4">
                 <Nav />
                 <Search onSubmit={handleSearch} />
+               
             </div>
             <div className="container py-2">
+            <SimpleSlider/>
+
                 <h6>Recommended Movies</h6>
                 {moviesList.length !== 0 ?
                     (<div className="row">
