@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../../components/navabr/navbar";
-import MovieItem from "../../components/movieItem.js/movieItem";
 import { useSelector, useDispatch } from "react-redux";
+import FavoriteMovie from "../../components/favoriteMovieItem/favoriteItem";
 
 function Favorites() {
-    // const [isLoading, setIsLoading] = useState(true);
-    let favoriteMovies = useSelector((state) => state.favoritesList)
+    let favoriteMovies = useSelector((state) => state)
     return (
         <div className="container">
             <div className="py-4">
                 <Nav />
             </div>
             <div className="row">
-                { (favoriteMovies.map((movie, index) => {
+                {  favoriteMovies.length !==0 ? (favoriteMovies.map((movie, index) => {
                     return (
-                        <MovieItem
+                        <FavoriteMovie
                             key={movie.id}
-                            id={movie.id}
-                            adult={movie.adult}
-                            overview={movie.overview}
-                            popularity={movie.popularity}
-                            poster_path={movie.poster_path}
-                            release_date={movie.release_date}
-                            title={movie.title}
-                            video={movie.video}
-                            vote_average={movie.vote_average}
-                            vote_count={movie.vote_count}
                             movie={movie}
                         />
-                    )
-                }))}
+                    ) 
+                })) : <h6 className="text-center">  YOU HAVE NOT ADDED ANY FAVORITES YET</h6>
+                
+                }
             </div>
         </div>
     );

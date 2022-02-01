@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Nav from "../../components/navabr/navbar";
 import Search from "../../components/search/search";
-import MovieItem from "../../components/movieItem.js/movieItem";
+import MovieItem from "../../components/movieItem/movieItem";
 import { axiosInstance } from "../../network/axiosConfig";
 import axios from "axios";
 import Loader from "../../components/loader/loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LanguageContext } from "../../context/languageContext";
+
 
 export default function Home() {
     const [moviesList, setMoviesList] = useState([]);
@@ -13,19 +15,8 @@ export default function Home() {
     const [searchMoviesList, setSearchMoviesList] = useState([]);
     const [searchPages, setSearchPages] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
+    const { contextLang, setContextLang } = useContext(LanguageContext);
 
-    // const [movieDetails, setMovieDetails] = useState({
-    //     id: 0,
-    //     adult: false,
-    //     overview: "",
-    //     popularity: "",
-    //     poster_path: "",
-    //     release_date: "",
-    //     title: "",
-    //     video: "",
-    //     vote_average: "",
-    //     vote_count: ""
-    // });
     const [isLoading, setIsLoading] = useState(true);
     const handleSearch = val => {
         setSearchTerm(val.searchTerm);
@@ -50,7 +41,7 @@ export default function Home() {
     }
 
     useEffect(() => {
-        axiosInstance.get("/3/movie/popular", {
+       ( axiosInstance.get("/3/movie/popular", {
             params: {
                 page: totalPages
             },
@@ -60,10 +51,40 @@ export default function Home() {
                 setIsLoading(false);
                 setTotalPages(totalPages);
             })
-            .catch((err) => console.log(err))
-
+            .catch((err) => console.log(err)))
     }, [totalPages])
+
     useEffect(() => {
+        {
+            contextLang === "ar" ?
+                ((axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=2bb85c65cde242afe2707a76ba2a0cde&language=ar`, {
+                    params: {
+                        page: totalPages
+                    },
+                })
+                    .then((res) => {
+                        setMoviesList(res.data.results)
+                        setTotalPages(totalPages);
+                    })
+                    .catch((err) => console.log(err))))
+                :
+                (axiosInstance.get("/3/movie/popular", {
+                    params: {
+                        page: totalPages
+                    },
+                })
+                    .then((res) => {
+                        setMoviesList(res.data.results);
+                        setTotalPages(totalPages);
+                    })
+                    .catch((err) => console.log(err)))
+        }
+    }, [contextLang])
+
+
+
+    useEffect(() => {
+
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2bb85c65cde242afe2707a76ba2a0cde&query=${searchTerm}`, {
             params: {
                 page: searchPages
@@ -93,16 +114,6 @@ export default function Home() {
                             return (
                                 <MovieItem
                                     key={movie.id}
-                                    id={movie.id}
-                                    adult={movie.adult}
-                                    overview={movie.overview}
-                                    popularity={movie.popularity}
-                                    poster_path={movie.poster_path}
-                                    release_date={movie.release_date}
-                                    title={movie.title}
-                                    video={movie.video}
-                                    vote_average={movie.vote_average}
-                                    vote_count={movie.vote_count}
                                     movie={movie}
                                 />
                             )
@@ -128,16 +139,6 @@ export default function Home() {
                             return (
                                 <MovieItem
                                     key={movie.id}
-                                    id={movie.id}
-                                    adult={movie.adult}
-                                    overview={movie.overview}
-                                    popularity={movie.popularity}
-                                    poster_path={movie.poster_path}
-                                    release_date={movie.release_date}
-                                    title={movie.title}
-                                    video={movie.video}
-                                    vote_average={movie.vote_average}
-                                    vote_count={movie.vote_count}
                                     movie={movie}
                                 />
                             )
@@ -162,7 +163,5 @@ export default function Home() {
 
             </div>
         </>
-
-
     );
 }

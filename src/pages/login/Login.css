@@ -1,0 +1,25 @@
+.login-page{
+background-image: url('../../jason-dent-SnXIF8_2oPw-unsplash.jpg');
+height: 100vh;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+.layer{
+background-color: rgba(0,0,0,0.7);
+top: 0px;
+left: 0px;
+bottom: 0px;
+right: 0px;
+position:absolute;
+}
+.form-control{
+    background-color: #ffffffa6;
+    border-color: #ffffffa6;
+}
+
+.layer .btn-primary{
+
+border-color: transparent;
+}

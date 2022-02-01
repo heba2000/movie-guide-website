@@ -1,6 +1,16 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { LoginContext } from '../../context/loginContext';
+import React, { useContext } from "react";
+import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Login.css'
+
+
 function Login() {
+    const { loginContext, setLoginContext } = useContext(LoginContext);
+    const history = useHistory();
+
     const formik = useFormik({
         initialValues: {
             emailValue: "",
@@ -19,38 +29,45 @@ function Login() {
     });
 
     return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-md-6 mx-auto'>
-                <h3 className='py-2'>Login Form</h3>
-                    <form onSubmit={formik.handleSubmit}>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                name="emailValue"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.emailValue}
-                            />
-                            {formik.touched.emailValue && formik.errors.emailValue ? <span className="text-danger">{formik.errors.emailValue} </span> : null}
+        <section className='login-page '>
+            <div className='layer d-flex align-items-center justify-content-center'>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-md-6 mx-auto'>
+                        <h3 className='py-3'><FontAwesomeIcon icon="video" className='mr-2 text-red'/> Login To MovieFix</h3>
+                        <form onSubmit={formik.handleSubmit}>
+                            <div className="mb-3">
+                                <label className="form-label">Email address</label>
+                                <input type="email" className="form-control"
+                                    name="emailValue"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.emailValue}
+                                />
+                                {formik.touched.emailValue && formik.errors.emailValue ? <span className="text-danger">{formik.errors.emailValue} </span> : null}
 
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control"
-                                name="passValue"
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                value={formik.values.passValue}
-                            />
-                            {formik.touched.passValue && formik.errors.passValue ? <span className="text-danger">{formik.errors.passValue} </span> : null}
-                        </div>
-                        <button type="submit" class="btn btn-primary text-center">Submit</button>
-                    </form>
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Password</label>
+                                <input type="password" className="form-control"
+                                    name="passValue"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.passValue}
+                                />
+                                {formik.touched.passValue && formik.errors.passValue ? <span className="text-danger">{formik.errors.passValue} </span> : null}
+                            </div>
+                            <button type="submit" className="btn btn-primary text-center"
+                             disabled={!formik.isValid}
+                            onClick={() => {history.push("/Home")}} >Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
+            </div>
 
-        </div>
+        </section>
+
     );
 }
 export default Login; 
