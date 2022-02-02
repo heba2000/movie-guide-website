@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { LanguageContext } from "./context/languageContext";
 import { LoginContext } from './context/loginContext';
 import React, { useState } from "react";
+import AllMovies from './pages/allMoviesPage/allMovies';
 
 function App() {
   const [contextLang, setContextLang] = useState('en')
@@ -26,6 +27,7 @@ function App() {
             <Switch>
               <Route path={"/"} exact component={Home} />
               <Route path={"/Home"} exact component={Home} />
+              <Route path={"/AllMovies"} exact component={AllMovies} />
               <Route path={"/Favorites"} exact component={Favorites} />
               <Route path={"/Login"} exact component={Login} />
               <Route path={"/movieDetails/:id"} exact component={MovieDetails} />

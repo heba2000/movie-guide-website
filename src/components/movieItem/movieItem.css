@@ -40,3 +40,6 @@
     letter-spacing: 2px;
     font-size: 15px;
 }
+.max-width-250{
+    max-width: 250px;
+}
