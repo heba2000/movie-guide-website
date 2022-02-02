@@ -83,9 +83,7 @@ export default function Home() {
     }, [contextLang])
 
 
-
     useEffect(() => {
-
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2bb85c65cde242afe2707a76ba2a0cde&query=${searchTerm}`, {
             params: {
                 page: searchPages
@@ -104,10 +102,10 @@ export default function Home() {
             <div className="py-4">
                 <Nav />
                 <Search onSubmit={handleSearch} />
-               
+                <SimpleSlider/>  
             </div>
             <div className="container py-2">
-            <SimpleSlider/>
+
 
                 <h6>Recommended Movies</h6>
                 {moviesList.length !== 0 ?

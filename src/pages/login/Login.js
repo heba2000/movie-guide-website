@@ -34,7 +34,7 @@ function Login() {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-6 mx-auto'>
-                        <h3 className='py-3'><FontAwesomeIcon icon="video" className='mr-2 text-red'/> Login To MovieFix</h3>
+                        <h3 className='py-3'><FontAwesomeIcon icon="video" className='mr-2 text-red'/> Login To MoviFy</h3>
                         <form onSubmit={formik.handleSubmit}>
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>

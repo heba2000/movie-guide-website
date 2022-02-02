@@ -16,7 +16,7 @@ function Nav() {
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container py-3" >
           <a className="navbar-brand text-red fw-bolder" >
-          <FontAwesomeIcon icon="video" className='me-3'/> Movie Guide
+          <FontAwesomeIcon icon="video" className='me-3'/> MoviFy
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

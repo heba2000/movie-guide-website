@@ -1,12 +1,11 @@
 .movie-banner{
-    /* background-image: url("https://image.tmdb.org/t/p/w500/2Jp2RIwJ3Dt7vamkTt7llVJ7uY.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     height: 70vh;
     padding: 0px;
     background-size: cover
 }
-.movie-dets h2{
+h2{
     font-size: 3rem;
     font-weight: 600;
     text-transform: uppercase;

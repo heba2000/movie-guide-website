@@ -1,5 +1,4 @@
 import axios from "axios";
-import Search from "../components/search/search";
 export const axiosInstance = axios.create({
     baseURL : "https://api.themoviedb.org"
 })

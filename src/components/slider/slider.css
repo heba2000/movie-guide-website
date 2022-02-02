@@ -1,0 +1,19 @@
+/* .w-98{
+    width: 98% !important;
+} */
+
+/* .slick-slider{
+    width: 98% !important;
+} */
+
+.movie-row{
+    position: relative;
+}
+.layer-slider{
+    background: linear-gradient(90deg, rgb(32, 32, 32) 0%, rgb(39 40 41) 28%, rgba(83, 100, 141, 0) 100%);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+}
