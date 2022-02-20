@@ -8,9 +8,7 @@ import './Login.css'
 
 
 function Login() {
-    const { loginContext, setLoginContext } = useContext(LoginContext);
     const history = useHistory();
-
     const formik = useFormik({
         initialValues: {
             emailValue: "",

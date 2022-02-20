@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Nav from "../../components/navabr/navbar";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import FavoriteMovie from "../../components/favoriteMovieItem/favoriteItem";
 
 function Favorites() {

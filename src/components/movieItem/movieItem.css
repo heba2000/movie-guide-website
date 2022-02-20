@@ -2,9 +2,14 @@
     border :none;
     background-color: transparent !important;
 }
+/* .favorite-icon:hover {
+    /* color: #fff; }*/ 
+.movies-slider .favorite-icon-slider:hover .text-dark{
+   color:tomato;
+}  
 .card-body h6{
-  font-weight: 600;
-  font-size: 15px;
+    font-weight: 600;
+    font-size: 15px;
 }
 .card-text:hover {
     color: #cc0000;

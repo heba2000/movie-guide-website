@@ -16,14 +16,13 @@ function MovieItem(props) {
         favoritesState.find(element => element.id === movie.id) !== undefined ?
             console.log("not Fund")
             : dispatch(addToFavorites(movie))
-
     }
 
     return (
         <div className="col-md-6 col-lg-3 mx-auto mx-2 my-1">
             <div className="card">
                 <div className="img-container">
-                    <img src={`${ImageBaseURL}${props.movie.poster_path}`} className="card-img-top" alt="movie-image" />
+                    <img src={`${ImageBaseURL}${props.movie.poster_path}`} className="card-img-top" alt="movie avatar" />
                     <div className="card-layer d-flex justify-content-center align-items-center">
                         <Link className="btn bg-red text-black" to={`/movieDetails/${props.movie.id}`}>
                             PREVIEW
@@ -32,14 +31,14 @@ function MovieItem(props) {
                 </div>
                 <div className="card-body px-0 ">
                     <h6 className="card-text d-inline-block w-75">{props.movie.title}</h6>
-                    <span className="bg-red px-2 py-1 float-right rounded"
+                    <span className="bg-red px-2 py-1 float-right rounded favorite-icon"
                         onClick={() => {
                             clicked ? dispatch(removeFromFavorites(props.movie.id)) : dispatchFavoritesAdd(props.movie)
                             setClicked(clickbility => !clickbility);
-                                        }
+                                    }
                         }
                     >
-                        <FontAwesomeIcon icon="heart" className={clicked ? 'fa-sm text-white' : 'fa-sm text-dark'} />
+                        <FontAwesomeIcon icon="heart" className={clicked ? 'fa-sm text-white ' : 'fa-sm text-dark '} />
                     </span>
 
                     <h6 className="rate-icon py-1">

@@ -2,10 +2,9 @@ import { ImageBaseURL } from "../../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { removeFromFavorites } from "../../store/actions/favoritesAction";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function FavoriteMovie(props) {
-    let favoritesState = useSelector((state) => state)
     const dispatch = useDispatch();
 
     return (
@@ -13,7 +12,7 @@ function FavoriteMovie(props) {
             <div className="col-md-6 col-lg-3 mx-auto mx-2 my-1">
                 <div className="card">
                     <div className="img-container">
-                        <img src={`${ImageBaseURL}${props.movie.poster_path}`} className="card-img-top" alt="movie-image" />
+                        <img src={`${ImageBaseURL}${props.movie.poster_path}`} className="card-img-top" alt="movie avatar" />
                         <div className="card-layer d-flex justify-content-center align-items-center">
                             <Link className="btn bg-red text-black" to={`/movieDetails/${props.movie.id}`}>
                                 PREVIEW

@@ -6,5 +6,10 @@
 
 .movies-carousel .slick-slider  .slick-prev{
     right: 0px !important;
-
+}
+.movies-carousel .slick-initialized .slick-slide {
+    display: flex !important;
+}
+.test {
+    background-color: red;
 }

@@ -17,8 +17,8 @@ function App() {
 
   return (
     <div
-      dir={contextLang === "ar" ? "rtl" : "ltr"}
-      className={contextLang === "ar" ? "text-right" : "text-left"}
+      // dir={contextLang === "ar" ? "rtl" : "ltr"}
+      // className={contextLang === "ar" ? "text-right" : "text-left"}
     >
 
       <LoginContext.Provider value={{ loginContext, setLoginContext }}>

@@ -13,7 +13,7 @@ function MovieDetails(props) {
         axiosInstance.get(`/3/movie/${params.id}`)
             .then((res) => { setMovieDetails(res.data); console.log(movieDetails) })
             .catch((err) => console.log(err));
-    }, []);
+    });
 
     return (
         <>
@@ -21,7 +21,7 @@ function MovieDetails(props) {
                 <div className="row py-2">
                     <div className="col-md-4  d-flex justify-content-center">
                         <div className="movie-poster">
-                            <img src={`${ImageBaseURL}${movieDetails.poster_path}`} />
+                            <img src={`${ImageBaseURL}${movieDetails.poster_path}`} alt='Movie poster'/>
                         </div>
                     </div>
                     <div className="col-md-8 mx-auto">
